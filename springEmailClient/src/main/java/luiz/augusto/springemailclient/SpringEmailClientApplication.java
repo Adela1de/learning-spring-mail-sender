@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
+import javax.mail.MessagingException;
+
 @SpringBootApplication
 public class SpringEmailClientApplication {
 
@@ -18,11 +20,11 @@ public class SpringEmailClientApplication {
 	}
 
 	@EventListener(ApplicationReadyEvent.class)
-	public void triggerMail()
-	{
-		service.sendSimpleEmail("ohomemmaisfortedomundo@gmail.com",
-				"testetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetest",
-				"Teste enviar e-mails com spring boot");
+	public void triggerMail() throws MessagingException {
+
+		service.sendSimpleEmail("joaovlcxbox123@gmail.com",
+				"e-mail body",
+				"e-mail subject");
 	}
 
 }
